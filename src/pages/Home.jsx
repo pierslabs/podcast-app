@@ -1,17 +1,10 @@
-import { useEffect } from 'react';
-import usePodcatStore from '../hooks/usePodcastStore';
+import PodcastItems from '../components/PodcastItems';
 import PodcastLayout from '../Layout/PodcastLayout';
 
 const Home = () => {
-  const { startOnLoadingPodcast, podcasts } = usePodcatStore();
-
-  useEffect(() => {
-    startOnLoadingPodcast();
-  }, []);
-
   return (
     <PodcastLayout>
-      <div>home</div>
+      <PodcastItems />
     </PodcastLayout>
   );
 };
