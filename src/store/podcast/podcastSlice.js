@@ -5,9 +5,11 @@ export const podcastSlice = createSlice({
     isLoadingPodcast: true,
     podcasts: [],
     activePodcast: null,
+    filterPodcast: [],
+    podcastMessager: null,
   },
   reducers: {
-    onsetActivePodcast: (state, { payload }) => {
+    onSetActivePodcast: (state, { payload }) => {
       state.activePodcast = payload;
     },
 
@@ -15,8 +17,23 @@ export const podcastSlice = createSlice({
       state.isLoadingPodcast = false;
       state.podcasts = payload;
     },
+
+    onFilterPodcast: (state, { payload }) => {
+      state.filterPodcast =
+        state.podcasts.filter(
+          (podcast) =>
+            String(podcast['im:name'].label.toLowerCase()).startsWith(payload.toLowerCase()) ||
+            String(podcast['im:artist'].label.toLowerCase()).startsWith(payload.toLowerCase())
+        ) || [];
+
+      if (payload.length > 0 && state.filterPodcast.length === 0) {
+        state.podcastMessager = 'We havent found any podcasts.';
+      } else {
+        state.podcastMessager = null;
+      }
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { onsetActivePodcast, onloadPodcasts } = podcastSlice.actions;
+export const { onSetActivePodcast, onloadPodcasts, onFilterPodcast } = podcastSlice.actions;
