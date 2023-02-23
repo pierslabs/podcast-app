@@ -19,4 +19,4 @@ export const podcastSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { increment } = podcastSlice.actions;
+export const { onsetActivePodcast, onloadPodcasts } = podcastSlice.actions;
