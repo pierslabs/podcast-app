@@ -1,7 +1,13 @@
 import React from 'react';
+import Header from '../components/Header';
 
 const PodcastLayout = ({ children }) => {
-  return <div>{children}</div>;
+  return (
+    <>
+      <Header />
+      {children}
+    </>
+  );
 };
 
 export default PodcastLayout;
