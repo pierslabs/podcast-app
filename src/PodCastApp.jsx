@@ -1,12 +1,16 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import PodcastRouter from './router/PodcastRouter';
+import { store } from './store/store';
 
 const PodCastApp = () => {
   return (
-    <BrowserRouter>
-      <PodcastRouter />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <PodcastRouter />
+      </BrowserRouter>
+    </Provider>
   );
 };
 
