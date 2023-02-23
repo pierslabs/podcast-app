@@ -3,7 +3,7 @@ import usePodcatStore from '../hooks/usePodcastStore';
 
 const Header = () => {
   const { isLoadingPodcast } = usePodcatStore();
-  console.log(isLoadingPodcast);
+
   return (
     <nav className="flex items-center justify-between flex-wrap  p-3 px-4 border-b-2 border-grey-500">
       <div className="flex items-center flex-shrink-0 mr-6">
