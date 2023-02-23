@@ -6,7 +6,9 @@ const { VITE_ITUNES_TOP_PODCAST_URC } = import.meta.env;
 
 const usePodcatStore = () => {
   const dispatch = useDispatch();
-  const { podcasts, isLoadingPodcast, filterPodcast, podcastMessager } = useSelector((state) => state.podcast);
+  const { podcasts, isLoadingPodcast, filterPodcast, podcastMessager, activePodcast } = useSelector(
+    (state) => state.podcast
+  );
 
   const startOnLoadingPodcast = async () => {
     try {
@@ -24,6 +26,7 @@ const usePodcatStore = () => {
     isLoadingPodcast,
     filterPodcast,
     podcastMessager,
+    activePodcast,
 
     //Methods
     startOnLoadingPodcast,
