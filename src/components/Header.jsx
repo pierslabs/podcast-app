@@ -9,7 +9,7 @@ const Header = () => {
     <nav className="flex items-center justify-between flex-wrap  p-3 px-4 border-b-2 border-grey-500">
       <div className="flex items-center flex-shrink-0 mr-6">
         <Link to="/">
-          <span className="font-semibold text-xl tracking-tight text-blue-600">Podcaster</span>
+          <span className="font-semibold text-2xl tracking-tight text-blue-600">Podcaster</span>
         </Link>
       </div>
       <div>

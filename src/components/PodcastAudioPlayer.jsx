@@ -5,7 +5,7 @@ const PodcastAudioPlayer = () => {
 
   const { title, description, audio } = activePodcastChapter;
   return (
-    <div className="w-2/4 rounded overflow-hidden  h-2/3 p-2 shadow-2xl border">
+    <div className="w-2/4 rounded overflow-hidden  h-2/3 p-2 shadow-2xl border mt-5">
       <div className="px-6 py-4 border-b-2">
         <div className="font-bold text-xl mb-2">{title}</div>
       </div>
