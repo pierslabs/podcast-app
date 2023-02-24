@@ -14,7 +14,7 @@ const PodcastItems = () => {
 
   const podcastListData = filterPodcast.length <= 0 ? podcasts : filterPodcast;
 
-  if (podcastMessager) return <h2>{podcastMessager}</h2>;
+  if (podcastMessager) return <h2 className="text-center mt-40 text-2xl text-slate-700">{podcastMessager}</h2>;
 
   return (
     <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-5 p-5  xl:grid-cols-4 sm:grid-cols-2 lg:mx-20 -mt-10">

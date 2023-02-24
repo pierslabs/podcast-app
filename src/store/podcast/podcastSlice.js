@@ -35,7 +35,7 @@ export const podcastSlice = createSlice({
         ) || [];
 
       if (payload.length > 0 && state.filterPodcast.length === 0) {
-        state.podcastMessager = 'We havent found any podcasts.';
+        state.podcastMessager = 'Sorry, we havent found any podcasts.';
       } else {
         state.podcastMessager = null;
       }
