@@ -1,18 +1,13 @@
-import { Navigate } from 'react-router-dom';
 import PodacstDetailItem from '../components/PodacstDetailItem';
-import usePodcatStore from '../hooks/usePodcastStore';
+import PodcastTableDeatilItem from '../components/PodcastTableDeatilItem';
 import PodcastLayout from '../Layout/PodcastLayout';
 
 const PodcastDetail = () => {
-  const { activePodcast } = usePodcatStore();
-
-  if (!activePodcast) return <Navigate to="/" />;
-
   return (
     <PodcastLayout>
-      <div className="conatiner p-10 border flex flex-row justify-between ">
+      <div className="conatiner p-10  flex flex-row justify-evenly">
         <PodacstDetailItem />
-        <div>kjljk</div>
+        <PodcastTableDeatilItem />
       </div>
     </PodcastLayout>
   );
