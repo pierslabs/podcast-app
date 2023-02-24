@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  podcast-client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: podcast-client-img
+    container_name: podcast-client-cont
+    volumes:
+      - /app/node_modules
+      - ./:/app
+    ports:
+      - "3000:5173"
+    stdin_open: true
+    tty: true
