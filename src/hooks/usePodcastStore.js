@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { podcastApi, podcastApiProxi } from '../api/podcastApi';
 import { onloadPodcasts } from '../store/podcast/podcastSlice';
 import { parse } from 'rss-to-json';
-import { setWithExpiryPodcastTTL } from '../helpers/manageTTLStorage';
+import { getWithExpiryPodcastTTL, setWithExpiryPodcastTTL } from '../helpers/manageTTLStorage';
 
 const { VITE_ITUNES_TOP_PODCAST_URC, VITE_ITUNES_DETAIL_PODCAST_URC } = import.meta.env;
 
@@ -15,7 +15,9 @@ const usePodcatStore = () => {
     const podcastTop100 = localStorage.getItem('podacasttop100');
     const podcastTop100JSON = JSON.parse(podcastTop100);
 
-    if (!podcastTop100) {
+    const isPodcatsTTLExpired = getWithExpiryPodcastTTL('podacasttop100');
+
+    if (!podcastTop100 || isPodcatsTTLExpired) {
       try {
         const { data } = await podcastApi.get(VITE_ITUNES_TOP_PODCAST_URC);
         setWithExpiryPodcastTTL('podacasttop100', JSON.stringify(data.feed.entry));
@@ -34,7 +36,9 @@ const usePodcatStore = () => {
   const startOnLoadingDetailPodcast = async (id) => {
     const podcastItem = localStorage.getItem(id);
     const podcastItemJSON = JSON.parse(podcastItem);
-    if (!podcastItem) {
+    const isPodcatsItemTTLExpired = getWithExpiryPodcastTTL(id);
+
+    if (!podcastItem || isPodcatsItemTTLExpired) {
       try {
         const { data } = await podcastApiProxi.get(`${VITE_ITUNES_DETAIL_PODCAST_URC}${id}`);
         const idCollection = data.results[0].collectionId;
