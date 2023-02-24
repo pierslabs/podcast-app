@@ -11,29 +11,50 @@ const usePodcatStore = () => {
     useSelector((state) => state.podcast);
 
   const startOnLoadingPodcast = async () => {
-    try {
-      const { data } = await podcastApi.get(VITE_ITUNES_TOP_PODCAST_URC);
-      dispatch(onloadPodcasts(data.feed.entry));
-    } catch (error) {
-      const errors = { errorTrace: new Error(), errorMessasge: error.message };
-      console.log(errors);
+    const podcastTop100 = localStorage.getItem('podacasttop100');
+
+    if (!podcastTop100) {
+      console.log('entra');
+      try {
+        const { data } = await podcastApi.get(VITE_ITUNES_TOP_PODCAST_URC);
+        localStorage.setItem('podacasttop100', JSON.stringify(data.feed.entry));
+        dispatch(onloadPodcasts(data.feed.entry));
+      } catch (error) {
+        const errors = { errorTrace: new Error(), errorMessasge: error.message };
+        console.log(errors);
+      }
+    } else {
+      const podcastTop100JSON = JSON.parse(podcastTop100);
+
+      dispatch(onloadPodcasts(podcastTop100JSON));
     }
   };
 
   const startOnLoadingDetailPodcast = async (id) => {
-    try {
-      const { data } = await podcastApiProxi.get(`${VITE_ITUNES_DETAIL_PODCAST_URC}${id}`);
-      const feedUrl = await data.results[0].feedUrl;
-      return await parse(feedUrl);
-    } catch (error) {
-      if (error.response.status === 403) {
-        const { data } = await podcastApi.get(`${VITE_ITUNES_DETAIL_PODCAST_URC}${id}`);
+    const podcastItem = localStorage.getItem(id);
+
+    if (!podcastItem) {
+      try {
+        const { data } = await podcastApiProxi.get(`${VITE_ITUNES_DETAIL_PODCAST_URC}${id}`);
+        const idCollection = data.results[0].collectionId;
         const feedUrl = await data.results[0].feedUrl;
-        return await parse(feedUrl);
-      } else {
-        const errors = { errorTrace: new Error(), errorMessasge: error.message };
-        console.log(errors);
+        const podcastsCollection = await parse(feedUrl);
+        localStorage.setItem(idCollection, JSON.stringify(podcastsCollection));
+        return podcastsCollection;
+      } catch (error) {
+        if (error.response.status === 403) {
+          const { data } = await podcastApi.get(`${VITE_ITUNES_DETAIL_PODCAST_URC}${id}`);
+          const feedUrl = await data.results[0].feedUrl;
+          const podcastsCollection = await parse(feedUrl);
+          localStorage.setItem(idCollection, JSON.stringify(podcastsCollection));
+          return podcastsCollection;
+        } else {
+          const errors = { errorTrace: new Error(), errorMessasge: error.message };
+          console.log(errors);
+        }
       }
+    } else {
+      return JSON.parse(podcastItem);
     }
   };
 
