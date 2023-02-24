@@ -1,9 +1,11 @@
 import axios from 'axios';
 
-const { VITE_ITUNES_BASE_URL } = import.meta.env;
+const { VITE_ITUNES_BASE_URL, VITE_CORS_PROXY } = import.meta.env;
 
-const podcastApi = axios.create({
-  baseURL: VITE_ITUNES_BASE_URL,
+export const podcastApiProxi = axios.create({
+  baseURL: ` ${VITE_CORS_PROXY}/${VITE_ITUNES_BASE_URL}`,
 });
 
-export default podcastApi;
+export const podcastApi = axios.create({
+  baseURL: VITE_ITUNES_BASE_URL,
+});
