@@ -4,7 +4,7 @@ import usePodcatStore from '../hooks/usePodcastStore';
 
 const PodacstDetailItem = () => {
   const { activePodcast } = usePodcatStore();
-  const podcastId = activePodcast.id.attributes['im:id'];
+  const podcastId = activePodcast?.id.attributes['im:id'];
 
   if (!activePodcast) return <Navigate to="/" />;
 
