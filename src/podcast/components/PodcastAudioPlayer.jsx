@@ -1,9 +1,12 @@
-import usePodcatStore from '../hooks/usePodcastStore';
+import { Navigate } from 'react-router-dom';
+import usePodcatStore from '../../hooks/usePodcastStore';
 
 const PodcastAudioPlayer = () => {
   const { activePodcastChapter } = usePodcatStore();
+  if (!activePodcastChapter) return <Navigate to="/" />;
 
   const { title, description, audio } = activePodcastChapter;
+
   return (
     <div className="w-2/4 rounded overflow-hidden  h-2/3 p-2 shadow-2xl border mt-5">
       <div className="px-6 py-4 border-b-2">

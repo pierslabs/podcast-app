@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import usePodcatStore from '../hooks/usePodcastStore';
-import { onSetActivePodcast } from '../store/podcast/podcastSlice';
+import usePodcatStore from '../../hooks/usePodcastStore';
+import { onSetActivePodcast } from '../../store/podcast/podcastSlice';
 
 const PodcastItems = () => {
   const dispatch = useDispatch();

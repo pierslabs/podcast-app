@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-import { Home, PodcastEpisode, PodcastDetail } from '../pages';
+import { Home, PodcastDetail, PodcastEpisode } from '../pages';
 
 const PodcastRouter = () => {
   // TODO: Verify storage TTL

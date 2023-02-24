@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
-import usePodcatStore from '../hooks/usePodcastStore';
-import { onFilterPodcast } from '../store/podcast/podcastSlice';
+import usePodcatStore from '../../hooks/usePodcastStore';
+import { onFilterPodcast } from '../../store/podcast/podcastSlice';
 
 const InputFilter = () => {
   const dispatch = useDispatch();

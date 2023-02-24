@@ -1,7 +1,5 @@
-import InputFilter from '../components/InputFilter';
-import PodcastItems from '../components/PodcastItems';
+import { InputFilter, PodcastItems } from '../components';
 import PodcastLayout from '../Layout/PodcastLayout';
-
 const Home = () => {
   return (
     <PodcastLayout>
