@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import usePodcatStore from '../hooks/usePodcastStore';
 import { onFilterPodcast } from '../store/podcast/podcastSlice';
