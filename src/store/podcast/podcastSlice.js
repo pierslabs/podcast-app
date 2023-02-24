@@ -6,6 +6,7 @@ export const podcastSlice = createSlice({
     podcasts: [],
     filterPodcast: [],
     activePodcast: null,
+    activePodcastChapter: null,
     podcastMessager: null,
   },
   reducers: {
@@ -14,6 +15,10 @@ export const podcastSlice = createSlice({
     },
     onSetActivePodcast: (state, { payload }) => {
       state.activePodcast = payload;
+    },
+
+    onSetActivePodcastChapter: (state, { payload }) => {
+      state.activePodcastChapter = payload;
     },
 
     onloadPodcasts: (state, { payload }) => {
@@ -39,4 +44,5 @@ export const podcastSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { onSetActivePodcast, onloadPodcasts, onFilterPodcast, onSetIsLoading } = podcastSlice.actions;
+export const { onSetActivePodcast, onloadPodcasts, onFilterPodcast, onSetIsLoading, onSetActivePodcastChapter } =
+  podcastSlice.actions;

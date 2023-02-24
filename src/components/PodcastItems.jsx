@@ -5,13 +5,12 @@ import usePodcatStore from '../hooks/usePodcastStore';
 import { onSetActivePodcast } from '../store/podcast/podcastSlice';
 
 const PodcastItems = () => {
+  const dispatch = useDispatch();
   const { startOnLoadingPodcast, podcasts, filterPodcast, podcastMessager } = usePodcatStore();
 
   useEffect(() => {
     startOnLoadingPodcast();
   }, []);
-
-  const dispatch = useDispatch();
 
   const podcastListData = filterPodcast.length <= 0 ? podcasts : filterPodcast;
 

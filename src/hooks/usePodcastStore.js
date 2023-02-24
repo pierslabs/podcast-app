@@ -7,9 +7,8 @@ const { VITE_ITUNES_TOP_PODCAST_URC, VITE_ITUNES_DETAIL_PODCAST_URC } = import.m
 
 const usePodcatStore = () => {
   const dispatch = useDispatch();
-  const { podcasts, isLoadingPodcast, filterPodcast, podcastMessager, activePodcast } = useSelector(
-    (state) => state.podcast
-  );
+  const { podcasts, isLoadingPodcast, filterPodcast, podcastMessager, activePodcast, activePodcastChapter } =
+    useSelector((state) => state.podcast);
 
   const startOnLoadingPodcast = async () => {
     try {
@@ -25,13 +24,11 @@ const usePodcatStore = () => {
     try {
       const { data } = await podcastApiProxi.get(`${VITE_ITUNES_DETAIL_PODCAST_URC}${id}`);
       const feedUrl = await data.results[0].feedUrl;
-
       return await parse(feedUrl);
     } catch (error) {
       if (error.response.status === 403) {
         const { data } = await podcastApi.get(`${VITE_ITUNES_DETAIL_PODCAST_URC}${id}`);
         const feedUrl = await data.results[0].feedUrl;
-
         return await parse(feedUrl);
       } else {
         const errors = { errorTrace: new Error(), errorMessasge: error.message };
@@ -47,6 +44,7 @@ const usePodcatStore = () => {
     filterPodcast,
     podcastMessager,
     activePodcast,
+    activePodcastChapter,
 
     //Methods
     startOnLoadingPodcast,

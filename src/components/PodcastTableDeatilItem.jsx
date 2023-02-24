@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import usePodcatStore from '../hooks/usePodcastStore';
-import { onSetIsLoading } from '../store/podcast/podcastSlice';
+import { onSetActivePodcastChapter, onSetIsLoading } from '../store/podcast/podcastSlice';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 
@@ -51,7 +51,18 @@ const PodcastTableDeatilItem = () => {
             {podcastChapters &&
               podcastChapters.chapters.map((x) => (
                 <tr key={x.id} className="text-gray-700  border-b hover:bg-slate-100 transition-all">
-                  <td className="w-1/3 text-left py-3 px-4 text-blue-500">
+                  <td
+                    className="w-1/3 text-left py-3 px-4 text-blue-500"
+                    onClick={() =>
+                      dispatch(
+                        onSetActivePodcastChapter({
+                          title: x.title,
+                          description: x.description,
+                          audio: x.enclosures[0].url,
+                        })
+                      )
+                    }
+                  >
                     <Link to={`/podcast/:podcastid/episode/${x.id}`}>{x.title}</Link>
                   </td>
                   <td className="w-1/3 text-left py-3 px-4">{moment(x.itunnes_published).format('D/M/YYYY')}</td>
