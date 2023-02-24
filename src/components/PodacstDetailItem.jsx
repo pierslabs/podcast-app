@@ -7,7 +7,7 @@ const PodacstDetailItem = () => {
 
   if (!activePodcast) return <Navigate to="/" />;
   return (
-    <div className="border p-5 w-1/3 flex flex-col items-center shadow-xl">
+    <div className="border p-5 w-1/3 flex flex-col items-center shadow-xl h-2/5">
       <div className="mb-2">
         <img className="w-64 mx-auto mb-3 rounded" src={activePodcast['im:image'][2].label} alt="Avatar of Writer" />
       </div>
