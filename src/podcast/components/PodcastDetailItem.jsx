@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import usePodcatStore from '../../hooks/usePodcastStore';
 
-const PodacstDetailItem = () => {
+const PodcastDetailItem = () => {
   const { activePodcast } = usePodcatStore();
   const podcastId = activePodcast?.id.attributes['im:id'];
 
@@ -29,4 +29,4 @@ const PodacstDetailItem = () => {
   );
 };
 
-export default PodacstDetailItem;
+export default PodcastDetailItem;

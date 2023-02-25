@@ -1,4 +1,4 @@
-import PodacstDetailItem from '../components/PodacstDetailItem';
+import PodacstDetailItem from '../components/PodcastDetailItem';
 import PodcastAudioPlayer from '../components/PodcastAudioPlayer';
 import PodcastLayout from '../Layout/PodcastLayout';
 
