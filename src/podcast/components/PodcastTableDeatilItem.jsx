@@ -49,24 +49,24 @@ const PodcastTableDeatilItem = () => {
           </thead>
           <tbody>
             {podcastChapters &&
-              podcastChapters.chapters.map((x) => (
-                <tr key={x.id} className="text-gray-700  border-b hover:bg-slate-100 transition-all">
+              podcastChapters.chapters.map((chapter) => (
+                <tr key={chapter.id} className="text-gray-700  border-b hover:bg-slate-100 transition-all">
                   <td
                     className="w-1/3 text-left py-3 px-4 text-blue-500"
                     onClick={() =>
                       dispatch(
                         onSetActivePodcastChapter({
-                          title: x.title,
-                          description: x.description,
-                          audio: x.enclosures[0].url,
+                          title: chapter.title,
+                          description: chapter.description,
+                          audio: chapter.enclosures[0].url,
                         })
                       )
                     }
                   >
-                    <Link to={`/podcast/:podcastid/episode/${x.id}`}>{x.title}</Link>
+                    <Link to={`/podcast/:podcastid/episode/${chapter.id}`}>{chapter.title}</Link>
                   </td>
-                  <td className="w-1/3 text-left py-3 px-4">{moment(x.itunnes_published).format('D/M/YYYY')}</td>
-                  <td className="text-left py-3 px-4">{x.itunes_duration}</td>
+                  <td className="w-1/3 text-left py-3 px-4">{moment(chapter.itunnes_published).format('D/M/YYYY')}</td>
+                  <td className="text-left py-3 px-4">{chapter.itunes_duration}</td>
                 </tr>
               ))}
           </tbody>
