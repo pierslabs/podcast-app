@@ -2,45 +2,54 @@
 
 <h2 style="border-bottom:solid 1px grey">Getting Started<h2>
 
-### Install
+## Install
 
 - You must have npm or nvm installed on your computer to run the application. Otherwise you can use Docker if you want.
 
-- npm development and visit
-  http://localhost:5173
+### npm development
 
 ```bash
   npm install
   npm run dev
 ```
 
-- npm prod
+- Visit http://localhost:5173
+</br>
+<div style="border-bottom:solid 1px grey"></div>
+
+### npm prod
 
 ```bash
   npm install
   npm run build
 ```
 
+</br>
 - Move to dist directory and run live server extension if you use vscode or copy dist contain and deploy in your vps or your host provider.
 
 ```bash
 cd dist
 ```
 
-- yarn
+<div style="border-bottom:solid 1px grey"></div>
+
+### yarn dev
 
 ```bash
   yarn
   yarn run dev
 ```
 
-- yarn prod
+- Visit http://localhost:5173
+<div style="border-bottom:solid 1px grey"></div>
+
+### yarn prod
 
 - Move to dist directory and run live server extension if you use vscode or copy dist contain and deploy in your vps or your host provider.
 
 ```bash
   yarn
-  run run build
+  yarn run build
 ```
 
 <div style="border-bottom:solid 1px grey"></div>
@@ -49,9 +58,10 @@ cd dist
 # DOCKER
 
 - Move to the podcast-app directory and execute the docker-compose.yml file and visit url.
+- dev
 
 ```bash
-docker-compose run up
+docker-compose up --build
 ```
 
-#### http://localhost:3000
+- Visit http://localhost:3000
