@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
-import usePodcatStore from '../hooks/usePodcastStore';
+import usePodcatStore from '../../hooks/usePodcastStore';
 
 const Header = () => {
   const { isLoadingPodcast } = usePodcatStore();

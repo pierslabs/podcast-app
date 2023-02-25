@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import usePodcatStore from '../hooks/usePodcastStore';
-import { onSetActivePodcastChapter, onSetIsLoading } from '../store/podcast/podcastSlice';
+import usePodcatStore from '../../hooks/usePodcastStore';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
+import { onSetActivePodcastChapter, onSetIsLoading } from '../../store/podcast/podcastSlice';
 
 const PodcastTableDeatilItem = () => {
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import usePodcatStore from '../hooks/usePodcastStore';
+import usePodcatStore from '../../hooks/usePodcastStore';
 
 const PodacstDetailItem = () => {
   const { activePodcast } = usePodcatStore();
