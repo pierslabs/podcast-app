@@ -1,5 +1,17 @@
 # Podcast APP
 
+### Tools
+
+```js
+ React
+ Redux Toolkit
+ React router dom
+ Moment
+ React-spinners
+ Rss-to-json
+ Tailwind
+```
+
 <h2 style="border-bottom:solid 1px grey">Getting Started<h2>
 
 ## Install
