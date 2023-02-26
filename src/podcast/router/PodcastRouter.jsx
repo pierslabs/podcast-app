@@ -3,8 +3,6 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { Home, PodcastDetail, PodcastEpisode } from '../pages';
 
 const PodcastRouter = () => {
-  // TODO: Verify storage TTL
-
   return (
     <Routes>
       <Route exact path="/" element={<Home />} />
