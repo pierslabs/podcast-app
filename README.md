@@ -1,6 +1,7 @@
 # Podcast APP
 
-https://podcast.pedro-losas.com
+- Enable CORS: https://cors-anywhere.herokuapp.com/
+- URL: https://podcast.pedro-losas.com
 
 ### Tools
 
