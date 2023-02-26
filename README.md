@@ -1,5 +1,7 @@
 # Podcast APP
 
+https://podcast.pedro-losas.com
+
 ### Tools
 
 ```js
@@ -12,7 +14,7 @@
  Tailwind
 ```
 
-<h2 style="border-bottom:solid 1px grey">Getting Started<h2>
+<h2 style="border-bottom:solid 1px grey">Getting Started</h2>
 
 ## Install
 
